@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.base.baseproject.utils.AppCompectEditTextHelvetica
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etEmoji"/>
+
+    <com.base.baseproject.utils.AppCompectEditTextHelvetica
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etEmojiTwo"/>
+
+    <Button
+       android:id="@+id/btnEmoji"
+       android:onClick="onClick"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+    <com.base.baseproject.utils.AppCompctTextViewHelvetica
+        android:id="@+id/tvEmoji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
