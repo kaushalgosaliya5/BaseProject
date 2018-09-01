@@ -19,13 +19,17 @@
         <activity android:name=".facebookshimmer.ShimmerActivity" />
         <activity
             android:name=".emoji.EmojiActivity"
-            android:screenOrientation="portrait" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-</application>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="4327ff729098de630bb7030317d98148401f4dea" />
 
-    </manifest>
+    </application>
+
+</manifest>

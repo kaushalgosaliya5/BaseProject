@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.base.baseproject.utils.AppCompectEditTextHelvetica
+        android:id="@+id/etEmoji"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etEmoji"/>
+        android:layout_height="wrap_content" />
 
     <com.base.baseproject.utils.AppCompectEditTextHelvetica
+        android:id="@+id/etEmojiTwo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etEmojiTwo"/>
+        android:layout_height="wrap_content" />
 
     <Button
-       android:id="@+id/btnEmoji"
-       android:onClick="onClick"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content" />
+        android:id="@+id/btnEmoji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick" />
 
     <com.base.baseproject.utils.AppCompctTextViewHelvetica
         android:id="@+id/tvEmoji"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
 </LinearLayout>
