@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -33,12 +35,12 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class BaseActivity extends AppCompatActivity {
 
+    @Nullable
     protected Dialog loadDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     protected double round(double value, int decimalValAfterPoint) {
@@ -52,7 +54,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    protected String encryptTextMessage(String message) {
+    protected String encryptTextMessage(@NonNull String message) {
         byte[] cipherText = null;
         try {
 
@@ -193,12 +195,13 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void showAlertDialog(Context context, String textMessage, final boolean isCancelBtnVisible, DialogInterface.OnClickListener clickListener) {
+    protected void showAlertDialog(@NonNull Context context, String textMessage, final boolean isCancelBtnVisible, @Nullable DialogInterface.OnClickListener clickListener) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         builder.setMessage(textMessage);
         String positiveBtnText = "";
+
         if(getResources().getString(R.string.alert_text).equals(textMessage)){
             positiveBtnText = "Reset";
         }else{
@@ -211,7 +214,7 @@ public class BaseActivity extends AppCompatActivity {
             builder.setPositiveButton(positiveBtnText,
                     new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(@NonNull DialogInterface dialog, int which) {
                             // positive button logic
                             dialog.dismiss();
                         }
@@ -225,7 +228,7 @@ public class BaseActivity extends AppCompatActivity {
             builder.setNegativeButton(negativeBtnText,
                     new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(@NonNull DialogInterface dialog, int which) {
                             // negative button logic
                             dialog.dismiss();
                         }
@@ -237,7 +240,7 @@ public class BaseActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    protected void showAppCloseAlert(Context context) {
+    protected void showAppCloseAlert(@NonNull Context context) {
         new AlertDialog.Builder(context)
                 .setTitle("Exit From App")
                 .setMessage("Are you sure, you want to leave application?")

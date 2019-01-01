@@ -1,8 +1,10 @@
 <resources>
-    <string name="addmob_key">ca-app-pub-3541317068965536/4548636138</string>
-    <string name="addmob_interstitial_key">ca-app-pub-3541317068965536/8024846713</string>
 
     <string name="app_name">BaseProject</string>
     <string name="alert_text">Testing Alert</string>
+
+    <string name="menu_settings">Settings</string>
+    <string name="menu_menu1">Menu 1</string>
+    <string name="menu_menu2">Menu 2</string>
 
 </resources>

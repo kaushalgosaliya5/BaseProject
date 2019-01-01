@@ -1,6 +1,8 @@
 package com.base.baseproject.facebookshimmer;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -65,10 +67,11 @@ public class ShimmerActivity extends AppCompatActivity {
      * method make volley network call and parses json
      */
     private void fetchRecipes() {
+
         JsonArrayRequest request = new JsonArrayRequest(URL,
                 new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(@Nullable JSONArray response) {
                         if (response == null) {
                             Toast.makeText(getApplicationContext(), "Couldn't fetch the menu! Pleas try again.", Toast.LENGTH_LONG).show();
                             return;
@@ -90,12 +93,13 @@ public class ShimmerActivity extends AppCompatActivity {
                     }
                 }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onErrorResponse(@NonNull VolleyError error) {
                 // error in getting json
                 Log.e(TAG, "Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
 
         MyApplication.getInstance().addToRequestQueue(request);
     }

@@ -15,10 +15,26 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".savestate.SaveStateActivity">
+        </activity>
         <activity android:name=".facebookshimmer.ShimmerActivity" />
         <activity
             android:name=".emoji.EmojiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recyclerview.RecyclerviewActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".menu.MenuActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".designpattern.builderdesign.BuilderDesignPatternActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +45,6 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4327ff729098de630bb7030317d98148401f4dea" />
-
     </application>
 
 </manifest>

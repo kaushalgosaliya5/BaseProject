@@ -3,6 +3,7 @@ package com.base.baseproject.base;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -42,18 +43,18 @@ public class MyApplication extends Application implements Application.ActivityLi
         return mRequestQueue;
     }
 
-    public <T> void addToRequestQueue(Request<T> req, String tag) {
+    public <T> void addToRequestQueue(@NonNull Request<T> req, String tag) {
         // set the default tag if tag is empty
         req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
         getRequestQueue().add(req);
     }
 
-    public <T> void addToRequestQueue(Request<T> req) {
+    public <T> void addToRequestQueue(@NonNull Request<T> req) {
         req.setTag(TAG);
         getRequestQueue().add(req);
     }
 
-    public void cancelPendingRequests(Object tag) {
+    public void cancelPendingRequests(@NonNull Object tag) {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }

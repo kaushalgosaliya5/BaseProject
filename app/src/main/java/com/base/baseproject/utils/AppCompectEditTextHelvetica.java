@@ -2,6 +2,7 @@ package com.base.baseproject.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
@@ -15,17 +16,17 @@ import java.util.regex.Pattern;
 
 public class AppCompectEditTextHelvetica extends AppCompatEditText {
 
-    public AppCompectEditTextHelvetica(Context context) {
+    public AppCompectEditTextHelvetica(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public AppCompectEditTextHelvetica(Context context, AttributeSet attrs) {
+    public AppCompectEditTextHelvetica(@NonNull Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public AppCompectEditTextHelvetica(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AppCompectEditTextHelvetica(@NonNull Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -50,7 +51,8 @@ public class AppCompectEditTextHelvetica extends AppCompatEditText {
         return editable;
     }
 
-    public static String encodeToNonLossyAscii(String original) {
+    @NonNull
+    public static String encodeToNonLossyAscii(@NonNull String original) {
         Charset asciiCharset = Charset.forName("US-ASCII");
         if (asciiCharset.newEncoder().canEncode(original)) {
             return original;
@@ -76,7 +78,7 @@ public class AppCompectEditTextHelvetica extends AppCompatEditText {
     private static final Pattern UNICODE_HEX_PATTERN = Pattern.compile("\\\\u([0-9A-Fa-f]{4})");
     private static final Pattern UNICODE_OCT_PATTERN = Pattern.compile("\\\\([0-7]{3})");
 
-    public static String decodeFromNonLossyAscii(String original) {
+    public static String decodeFromNonLossyAscii(@NonNull String original) {
         Matcher matcher = UNICODE_HEX_PATTERN.matcher(original);
         StringBuffer charBuffer = new StringBuffer(original.length());
         while (matcher.find()) {

@@ -2,6 +2,7 @@ package com.base.baseproject.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
@@ -15,17 +16,17 @@ import java.util.regex.Pattern;
 
 public class AppCompctTextViewHelvetica extends AppCompatTextView {
 
-    public AppCompctTextViewHelvetica(Context context) {
+    public AppCompctTextViewHelvetica(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public AppCompctTextViewHelvetica(Context context, AttributeSet attrs) {
+    public AppCompctTextViewHelvetica(@NonNull Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public AppCompctTextViewHelvetica(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AppCompctTextViewHelvetica(@NonNull Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -43,13 +44,15 @@ public class AppCompctTextViewHelvetica extends AppCompatTextView {
         super.setText(text, type);
     }
 
+    @NonNull
     @Override
     public Editable getText() {
         Editable editable = new SpannableStringBuilder(encodeToNonLossyAscii(super.getText().toString()));
         return editable;
     }
 
-    public static String encodeToNonLossyAscii(String original) {
+    @NonNull
+    public static String encodeToNonLossyAscii(@NonNull String original) {
         Charset asciiCharset = Charset.forName("US-ASCII");
         if (asciiCharset.newEncoder().canEncode(original)) {
             return original;
@@ -75,7 +78,7 @@ public class AppCompctTextViewHelvetica extends AppCompatTextView {
     private static final Pattern UNICODE_HEX_PATTERN = Pattern.compile("\\\\u([0-9A-Fa-f]{4})");
     private static final Pattern UNICODE_OCT_PATTERN = Pattern.compile("\\\\([0-7]{3})");
 
-    public static String decodeFromNonLossyAscii(String original) {
+    public static String decodeFromNonLossyAscii(@NonNull String original) {
         Matcher matcher = UNICODE_HEX_PATTERN.matcher(original);
         StringBuffer charBuffer = new StringBuffer(original.length());
         while (matcher.find()) {

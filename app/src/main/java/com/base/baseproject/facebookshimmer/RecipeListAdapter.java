@@ -1,6 +1,7 @@
 package com.base.baseproject.facebookshimmer;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.My
         public TextView name, description, price, chef, timestamp;
         public ImageView thumbnail;
 
-        public MyViewHolder(View view) {
+        public MyViewHolder(@NonNull View view) {
             super(view);
             name = view.findViewById(R.id.name);
             chef = view.findViewById(R.id.chef);
@@ -39,6 +40,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.My
         this.cartList = cartList;
     }
 
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
